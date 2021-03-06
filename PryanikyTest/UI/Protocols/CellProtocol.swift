@@ -8,6 +8,7 @@
 import Foundation
 
 protocol CellProtocol {
+    
     var infoData: InfoData { get set }
     var variantChosed: ((String) -> ())? { get set }
     func configure(with info: InfoData)

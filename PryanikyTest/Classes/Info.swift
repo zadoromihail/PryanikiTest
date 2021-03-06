@@ -14,7 +14,7 @@ struct Info: Decodable {
 
 struct InfoData: Decodable {
     var name: String?
-    var data: [DetailData]?
+    var data: DetailData?
 }
 
 struct DetailData: Decodable {
