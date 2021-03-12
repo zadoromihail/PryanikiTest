@@ -45,7 +45,6 @@ class MainViewController: UIViewController {
     private func configure() {
         
         viewModel.loadData { [weak self] in
-            
             self?.tableView.reloadData()
         }
     }
@@ -63,7 +62,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        viewModel.numberOfRowsInSection
+        viewModel.numberOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,6 +79,16 @@ extension MainViewController: UITableViewDataSource {
         }
         
         return cell as? UITableViewCell ?? UITableViewCell()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        viewModel.numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        viewModel.titleForHeaderInSection(at: section)
     }
 }
 
